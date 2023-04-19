@@ -21,22 +21,20 @@
         $allCharacter= $letter . $number . $symbol;
         $arrayAllCharacter=str_split($allCharacter);
 
-        
+        session_start();
         if (isset($lunghezzaPassword)) {
-            $newPassword = createPassword($arrayAllCharacter,$lunghezzaPassword);
+            $_SESSION['newPassword'] = $newPassword = createPassword($arrayAllCharacter,$lunghezzaPassword);
+            
         }
     
     ?>
     <div>
-        
         <?php
             if(isset($newPassword)){
-                ?><h1>La tua nuova password è:</h1><?php
-                echo implode(" ",$newPassword);
+                header('Location: ./response.php');
             }
         ?>
     </div>
-
     <form action="index.php" method="GET">
         <label for="passLang">Lunghezza Password:</label>
         <input type="number" id="passLang" name="passLang">
