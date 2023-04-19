@@ -14,11 +14,25 @@
             $lunghezzaPassword = $_GET['passLang'];
         }
 
-        $letter='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $letter='abcdefghijklmnopqrstuvwxyz';
+        $capitalLetter='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $number='0123456789';
         $symbol='._/?!£$&';
 
-        $allCharacter= $letter . $number . $symbol;
+        if(!isset($_GET['Lettere'])){
+            $letter = '';
+            $capitalLetter = '';
+        }
+
+        if(!isset($_GET['Numeri'])){
+            $number = '';
+        }
+
+        if(!isset($_GET['Simboli'])){
+            $symbol = '';
+        }
+
+        $allCharacter= $letter . $number . $symbol . $capitalLetter;
         $arrayAllCharacter=str_split($allCharacter);
 
         session_start();
@@ -36,8 +50,19 @@
         ?>
     </div>
     <form action="index.php" method="GET">
-        <label for="passLang">Lunghezza Password:</label>
-        <input type="number" id="passLang" name="passLang">
+        <div class="box">
+            <label for="passLang">Lunghezza Password:</label>
+            <input type="number" id="passLang" name="passLang">
+        </div>
+        <div class="box">
+            <p>Che tipo di caratteri desideri includere:</p>
+                <input type="checkbox" id="Lettere" name="Lettere" value="Lettere">
+                <label for="Lettere"> Lettere</label><br>
+                <input type="checkbox" id="Numeri" name="Numeri" value="Numeri">
+                <label for="Numeri"> Numeri</label><br>
+                <input type="checkbox" id="Simboli" name="Simboli" value="Simboli">
+                <label for="Simboli"> Simboli</label><br>
+        </div>
         <button>Crea Password</button>
     </form>
     
