@@ -55,12 +55,19 @@
             <input type="number" id="passLang" name="passLang">
         </div>
         <div class="box">
+            <p>Accetti la ripetizione dei caratteri?</p>
+                <input type="radio" id="Si" name="Repeate" value="Si" checked>
+                <label for="Si" >Si</label><br>
+                <input type="radio" id="No" name="Repeate" value="No">
+                <label for="No">No</label><br>  
+        </div>
+        <div class="box">
             <p>Che tipo di caratteri desideri includere:</p>
-                <input type="checkbox" id="Lettere" name="Lettere" value="Lettere">
+                <input type="checkbox" id="Lettere" name="Lettere" value="Lettere" checked>
                 <label for="Lettere"> Lettere</label><br>
-                <input type="checkbox" id="Numeri" name="Numeri" value="Numeri">
+                <input type="checkbox" id="Numeri" name="Numeri" value="Numeri" checked>
                 <label for="Numeri"> Numeri</label><br>
-                <input type="checkbox" id="Simboli" name="Simboli" value="Simboli">
+                <input type="checkbox" id="Simboli" name="Simboli" value="Simboli" checked>
                 <label for="Simboli"> Simboli</label><br>
         </div>
         <button>Crea Password</button>
